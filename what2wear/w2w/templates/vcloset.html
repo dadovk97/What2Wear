@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="form-inline">
+    <h1 style="float: left">Virtual closet</h1>
+
+    <h6 style="float: right; margin-left: 30%;"> Add new clothes to your closet!</h6>
+    <a href="{{ url_for ('insert')}}" class="btn btn-outline-dark" style="margin: 5px 7px; float: right;">Insert</a>
+</div>
+
+
+{% for closet in clothes %}
+		<article class="media content-section">
+       <div class="media-body">
+
+    {% if closet.item == "T-shirt" %}
+    <p class="article-content"><img src="static/img/tshirt.png" alt="tshirt" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.item == "Pants" %}
+    <p class="article-content"><img src="static/img/pants.png" alt="pants" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.item == "Jacket" %}
+    <p class="article-content"><img src="static/img/jacket.png" alt="jacket" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.item == "Footwear" %}
+    <p class="article-content"><img src="static/img/footwear.png" alt="footwear" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+
+    {% if closet.color == "Black" %}
+    <p class="article-content"><img src="static/img/colors/black.png" alt="Black" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Gray" %}
+    <p class="article-content"><img src="static/img/colors/gray.png" alt="Gray" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "White" %}
+    <p class="article-content"><img src="static/img/colors/white.png" alt="White" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Yellow" %}
+    <p class="article-content"><img src="static/img/colors/yellow.png" alt="Yellow" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Orange" %}
+    <p class="article-content"><img src="static/img/colors/orange.png" alt="Orange" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Red" %}
+    <p class="article-content"><img src="static/img/colors/red.png" alt="Red" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Pink" %}
+    <p class="article-content"><img src="static/img/colors/pink.png" alt="Pink" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Purple" %}
+    <p class="article-content"><img src="static/img/colors/purple.png" alt="Purple" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Blue" %}
+    <p class="article-content"><img src="static/img/colors/blue.png" alt="Blue" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Green" %}
+    <p class="article-content"><img src="static/img/colors/green.png" alt="Green" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.color == "Brown" %}
+    <p class="article-content"><img src="static/img/colors/brown.png" alt="Brown" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+
+
+    {% if closet.occasion == "Casual" %}
+    <p class="article-content"><img src="static/img/casual.png" alt="Casual" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.occasion == "Sport" %}
+    <p class="article-content"><img src="static/img/sport.png" alt="Sport" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.occasion == "Formal" %}
+    <p class="article-content"><img src="static/img/formal.png" alt="Formal" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+
+    
+    {% if closet.waterproof == True %}
+    <p class="article-content">Waterproof: <img src="static/img/umbrella.png" alt="waterproof" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if closet.waterproof != True %}
+    <p class="article-content">Waterproof:<img src="static/img/no.png" alt="waterproof" width="35" height="35" style="margin:0px 3px;" ></p>
+    {% endif %}
+    <div class="form-inline">
+    {% if closet.winter == True %}
+    <p class="article-content"><img src="static/img/winter.png" alt="winter" width="30" height="30" style="margin:0px 3px;" > </p>
+    {% endif %}
+    {% if closet.spring == True %}
+    <p class="article-content"> <img src="static/img/spring.png" alt="spring" width="30" height="30" style="margin:0px 3px;"></p>
+    {% endif %}
+    {% if closet.summer == True %}
+    <p class="article-content"><img src="static/img/summer.png" alt="summer" width="30" height="30" style="margin:0px 3px;"> </p>
+    {% endif %}
+    {% if closet.autumn == True %}
+    <p class="article-content"><img src="static/img/autumn.png" alt="autumn" width="30" height="30" style="margin:0px 3px;"></p>
+    {% endif %}
+    </div>
+  </div>
+</article>
+	{% endfor %}
+
+{% endblock content %}    
+
+
+

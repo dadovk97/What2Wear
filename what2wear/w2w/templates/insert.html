@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="content-section">
+    <form method="POST" action="{{ url_for('insert')}}">
+        <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Insert information about the item</legend>
+
+                <div class="form-inline">
+              <div class="form-group" style="margin:0px 4px 0px 10px;">
+                {{ form.item (class="btn btn-secondary dropdown-toggle", style="background-color:transparent; color:black;")}}
+            </div>
+
+            <div class="form-group"style="margin:0px 4px;">
+                {{ form.color (class="btn btn-secondary dropdown-toggle", style="background-color:transparent; color:black;")}}
+                
+            </div>
+            
+               <div class="form-group"style="margin:0px 4px;">
+                {{ form.occasion (class="btn btn-secondary dropdown-toggle", style="background-color:transparent; color:black;")}}
+                
+            </div>
+                </div>
+                <hr>
+                <h6 style="margin: 3px 0px 6px 10px;"> For which season is the item wearable?  (You can choose more than one)</h6>
+                <div class="form-inline">
+             <div class="form-group">
+
+                <h6 style="margin: 3px 5px 3px 10px;">Winter: {{ form.winter}} </h6>                
+            </div>
+             <div class="form-group">
+                
+                <h6 style="margin: 3px 5px;">Spring: {{ form.spring}} </h6>  
+                
+            </div>
+             <div class="form-group">
+                
+                <h6 style="margin: 3px 5px;">Summer: {{ form.summer}} </h6>  
+                
+            </div>
+             <div class="form-group">
+                
+                <h6 style="margin: 3px 5px;">Autumn: {{ form.autumn}} </h6>  
+                
+            </div>
+        </div>
+        <hr>
+               <div class="form-group" style="margin-left: 10px;">
+
+                <h6>Is the item waterproof? {{ form.waterproof}} </h6>  
+                
+            </div>
+            <hr>
+
+             <div class="form-group" style="margin-left: 10px;">
+                
+                <h6>Do you want this item to be public? {{form.public_closet }} </h6>  
+                
+            </div>
+    <hr>
+
+            <input type ="file" name ="file" accept="image/*" multiple style="margin-left: 10px; margin-right: -50px; float:left;">
+           
+
+       <div class="form-inline" style="float:right;">
+       
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-dark")}}
+        </div>
+           
+         <a href="{{ url_for ('vcloset')}}" class="btn btn-outline-danger" style="margin-left: 5px;">Cancel</a>
+
+    </div>
+         </fieldset> 
+    </form>
+</div>
+
+    
+{% endblock content %}    

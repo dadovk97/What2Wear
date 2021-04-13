@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-sm-7">
+
+
+{% for x in recommend %} 
+   <article class="media content-section" style="background-color: rgba(248,248,248,0.8)">
+       <div class="media-body">
+
+    {% if x.item == "T-shirt" %}
+    <p class="article-content"><img src="static/img/tshirt.png" alt="tshirt" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.item == "Pants" %}
+    <p class="article-content"><img src="static/img/pants.png" alt="pants" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.item == "Jacket" %}
+    <p class="article-content"><img src="static/img/jacket.png" alt="jacket" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.item == "Footwear" %}
+    <p class="article-content"><img src="static/img/footwear.png" alt="footwear" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+
+    {% if x.color == "Black" %}
+    <p class="article-content"><img src="static/img/colors/black.png" alt="Black" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Gray" %}
+    <p class="article-content"><img src="static/img/colors/gray.png" alt="Gray" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "White" %}
+    <p class="article-content"><img src="static/img/colors/white.png" alt="White" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Yellow" %}
+    <p class="article-content"><img src="static/img/colors/yellow.png" alt="Yellow" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Orange" %}
+    <p class="article-content"><img src="static/img/colors/orange.png" alt="Orange" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Red" %}
+    <p class="article-content"><img src="static/img/colors/red.png" alt="Red" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Pink" %}
+    <p class="article-content"><img src="static/img/colors/pink.png" alt="Pink" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Purple" %}
+    <p class="article-content"><img src="static/img/colors/purple.png" alt="Purple" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Blue" %}
+    <p class="article-content"><img src="static/img/colors/blue.png" alt="Blue" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Green" %}
+    <p class="article-content"><img src="static/img/colors/green.png" alt="Green" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.color == "Brown" %}
+    <p class="article-content"><img src="static/img/colors/brown.png" alt="Brown" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+
+
+    {% if x.occasion == "Casual" %}
+    <p class="article-content"><img src="static/img/casual.png" alt="Casual" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.occasion == "Sport" %}
+    <p class="article-content"><img src="static/img/sport.png" alt="Sport" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.occasion == "Formal" %}
+    <p class="article-content"><img src="static/img/formal.png" alt="Formal" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+
+    
+    {% if x.waterproof == True %}
+    <p class="article-content">Waterproof: <img src="static/img/umbrella.png" alt="waterproof" width="40" height="40" style="margin:0px 3px;" ></p>
+    {% endif %}
+    {% if x.waterproof != True %}
+    <p class="article-content">Waterproof:<img src="static/img/no.png" alt="waterproof" width="35" height="35" style="margin:0px 3px;" ></p>
+    {% endif %}
+    <div class="form-inline">
+    {% if x.winter == True %}
+    <p class="article-content"><img src="static/img/winter.png" alt="winter" width="30" height="30" style="margin:0px 3px;" > </p>
+    {% endif %}
+    {% if x.spring == True %}
+    <p class="article-content"> <img src="static/img/spring.png" alt="spring" width="30" height="30" style="margin:0px 3px;"></p>
+    {% endif %}
+    {% if x.summer == True %}
+    <p class="article-content"><img src="static/img/summer.png" alt="summer" width="30" height="30" style="margin:0px 3px;"> </p>
+    {% endif %}
+    {% if x.autumn == True %}
+    <p class="article-content"><img src="static/img/autumn.png" alt="autumn" width="30" height="30" style="margin:0px 3px;"></p>
+    {% endif %}
+    </div>
+  </div>
+</article>
+    
+{% endfor %}
+
+
+
+  </div>
+
+
+<div class="col-sm-5">
+
+<div class="content-section" style="background-color:#ded7d1; border-color: #acaeb0; box-shadow: 10px 10px 5px #acaeb0;">
+    
+    <form method="POST" action="" enctype="multipart/form-data">
+    	{{ form.hidden_tag() }}
+        <fieldset class="form-group">
+    	<div class="form-group">
+            <h6 style="text-align:center; ">Find your city and get a recommendation!</h6>
+            <hr>
+            <div class="form-inline">
+                {{ form.city(class="form-control form-control-lg" , placeholder="City" )}}
+                 {{ form.submit(class="btn btn-outline-secondary btn-lg" ,style=" margin :4px;" )}}
+             </div>
+                <small>Get recommendations from other public closets: {{ form.public_rec }} </small>                   
+            </div>
+    </fieldset>
+
+        
+</form>
+    
+    <p class= "text-capitalize" style="text-align: center; font-size:2.5rem;">{{location}} </p>
+    <p class= "text-capitalize"style="text-align: center; font-size:2.5rem;">{{temp}} {{celsius}} </p>
+
+    <div class="form-inline">
+    <p class= "text-capitalize"style="text-align: center; font-size:1.5rem; padding-left: 27%;">{{weather}} </p>
+    <img src="{{img_url}}" >
+    </div>
+   
+   <small> {{text1}} {{city_name}} {{text2}} {{weather}} {{text3}} {{ temp }} {{text4}} </small>
+ 
+</div>
+
+</div>
+{% endblock content %}
